@@ -20,18 +20,23 @@ public class Controller {
 
     @Autowired
     private BankBranchRepository Bank_Branch_repo;
-
     @Autowired
     private DepartmentRepository Department_Repos;
-
     @Autowired
     private CustomerRepository customerRepository;
-
     @Autowired
     private AccountRepository accountRepository;
-
     @Autowired
     private TransactionRepository transactionRepository;
+    @Autowired
+    private EmailTrackingRepository emailTrackingRepository;
+    @Autowired
+    private JobTitleRepository jobTitleRepository;
+    @Autowired
+    private AccountTypesRepository accountTypesRepository;
+    @Autowired
+    private TransactionTypeRepository transactionTypeRepository;
+
 
     @GetMapping("")
     private Error sendError(){
@@ -91,6 +96,26 @@ public class Controller {
         return accountRepository.save(account);
     }
 
+
+    @GetMapping(value = "emails/get")
+    private List<Email_Tracking> getEmail(){
+        return emailTrackingRepository.findAll();
+    }
+
+    @GetMapping(value = "titles/get")
+    private List<Job_Title> getJobTitles(){
+        return jobTitleRepository.findAll();
+    }
+
+    @GetMapping(value = "types/get")
+    private List<Account_Type> getAccountTypes(){
+        return accountTypesRepository.findAll();
+    }
+
+    @GetMapping(value = "transaction/type/get")
+    private List<Transaction_type> getTransactionType(){
+        return transactionTypeRepository.findAll();
+    }
 
     @GetMapping(value = "branches/get")
     private List<Bank_Branch> getBranch(){

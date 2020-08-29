@@ -36,7 +36,6 @@ public class Employee implements Serializable {
     private Department department;
 
 
-    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "employee_email_tracking",
             joinColumns = {

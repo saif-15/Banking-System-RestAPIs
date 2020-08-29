@@ -1,5 +1,7 @@
 package com.stechlabs.BankRestAPIs.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -14,6 +16,7 @@ public class Email implements Serializable {
     private String title;
     private String body;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "email")
     private Set<Email_Tracking> email_trackingList;
 
