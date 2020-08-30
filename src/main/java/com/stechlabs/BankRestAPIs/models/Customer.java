@@ -15,6 +15,8 @@ public class Customer implements Serializable {
     private int customer_id;
     private String customer_type;
 
+    private String password;
+
     @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "person_fk",nullable = false)
     private Person person;
@@ -27,11 +29,20 @@ public class Customer implements Serializable {
     public Customer(){}
 
 
-    public Customer(int customer_id, String customer_type, Person person, List<Account> accounts) {
+    public Customer(int customer_id, String customer_type, Person person,String password,List<Account> accounts) {
         this.customer_id = customer_id;
         this.customer_type = customer_type;
         this.person = person;
         this.accounts = accounts;
+        this.password=password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Person getPerson() {
