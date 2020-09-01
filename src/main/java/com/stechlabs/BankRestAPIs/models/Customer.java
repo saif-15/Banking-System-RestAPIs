@@ -17,7 +17,7 @@ public class Customer implements Serializable {
 
     private String password;
 
-    @OneToOne(cascade = CascadeType.MERGE)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "person_fk",nullable = false)
     private Person person;
 

@@ -55,8 +55,8 @@ public class Controller {
     }
 
     @PostMapping(value = "employee/add")
-    private void addEmployee(@RequestBody Employee employee){
-        employeeRepository.save(employee);
+    private Employee addEmployee(@RequestBody Employee employee){
+        return employeeRepository.save(employee);
     }
 
 

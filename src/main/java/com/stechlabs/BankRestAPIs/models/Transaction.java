@@ -20,15 +20,15 @@ public class Transaction implements Serializable {
     @JoinColumn(name = "loan_fk")
     private Loans loan;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "transaction_type_id",nullable = false)
     private Transaction_type transaction_type;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "employee_id",nullable = false)
     private Employee employee;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "account_id")
     private Account account;
 
